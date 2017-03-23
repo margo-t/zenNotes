@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FirebaseService} from '../../services/firebase.service';
 
 @Component({
   selector: 'app-notes',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
+  notes:any;
 
-  constructor() { }
+  constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit() {
+    this.firebaseService.getNotes().subscribe(notes => {
+      console.log(notes);
+      this.notes = notes;
+    });
   }
 
 }
