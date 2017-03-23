@@ -6,7 +6,7 @@ import * as firebase from 'firebase';
 export class FirebaseService {
 
   notes: FirebaseListObservable<any[]>;
-  note: FirebaseObjectObservable<any[]>;
+  note: FirebaseObjectObservable<any>;
   folder: any;
 
 
@@ -14,23 +14,24 @@ export class FirebaseService {
   this.folder = 'noteImages';}
 
   getNotes(){
-    this.notes = this.af.database.list('notes') as FirebaseListObservable<Note[]>
+    this.notes = this.af.database.list('notes') as FirebaseListObservable<Note[]>;
     return this.notes;
   }
 
   getNoteDetails(id){
-    this.note = this.af.database.object('/notes/'+id) as FirebaseObjectObservable<Note>
+    this.note = this.af.database.object('/notes/'+id) as FirebaseObjectObservable<Note>;
     return this.note;
 
   }
 
-  addNote(note){
+  addNote(note: Note){
     // Create root reference
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
       let path = `/${this.folder}/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
+
         note.image = selectedFile.name;
         note.path = path;
         return this.notes.push(note);
@@ -42,7 +43,9 @@ export class FirebaseService {
 
 interface Note{
   $key?:string;
-  $title?:string;
-  $post?:string;
+  title?:string;
+  post?:string;
+  path?:string;
+  image?:string;
   //$date?:string;
 }

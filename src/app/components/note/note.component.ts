@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.service'
 import {Router, ActivatedRoute, Params} from '@angular/router'
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-note',
@@ -27,6 +28,15 @@ export class NoteComponent implements OnInit {
       console.log(note);
 
       //storageRef
+      let storageRef = firebase.storage().ref();
+      let spaceRef = storageRef.child(note.path);
+      storageRef.child(note.path).getDownloadURL().then((url) => {
+
+        //set image url
+        this.imageUrl = url;
+      }).catch((Error) => {
+        console.log(Error);
+      })
     });
   }
 
