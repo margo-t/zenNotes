@@ -28,7 +28,7 @@ export class FirebaseService {
     // Create root reference
     let storageRef = firebase.storage().ref();
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
-      let path = `/${this.folder}/selectedFile.name`;
+      let path = `/${this.folder}/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         note.image = selectedFile.name;
