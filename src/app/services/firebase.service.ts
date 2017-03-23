@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 import * as firebase from 'firebase';
 
 @Injectable()
 export class FirebaseService {
 
   notes: FirebaseListObservable<any[]>;
-  //note: FirebaseObjectObservable<any[]>;
+  note: FirebaseObjectObservable<any[]>;
   folder: any;
 
 
@@ -16,6 +16,12 @@ export class FirebaseService {
   getNotes(){
     this.notes = this.af.database.list('notes') as FirebaseListObservable<Note[]>
     return this.notes;
+  }
+
+  getNoteDetails(id){
+    this.note = this.af.database.object('/notes/'+id) as FirebaseObjectObservable<Note>
+    return this.note;
+
   }
 
   addNote(note){

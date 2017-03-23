@@ -1,3 +1,20 @@
-<p>
-  note works!
-</p>
+<div *ngIf="note">
+<ul class="pager">
+  <li class="previous"><a [routerLink]="['/notes']">&larr; Back</a></li>
+</ul>
+
+<h2>{{note.title}}</h2>
+<blockquote>
+  <div class="row">
+    <div class="col-md-8">
+      <p>{{note.post}}</p>
+      <small>Nevermber nth, 1990 </small>
+    </div>
+    <div class="col-md-4">
+      <!-- Image here> -->
+    </div>
+</div>
+</blockquote>
+<a class="btn btn-default" href="#">Edit</a>
+<a class="btn btn-danger" href="#">Delete</a>
+</div>
