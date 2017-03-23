@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FirebaseService} from '../../services/firebase.service'
+//import {Rounter, ActivatedRouter}
 
 @Component({
   selector: 'app-note',

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
-import {FirebaseService} from './services/firebase.service';
+import { FirebaseService } from './services/firebase.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,6 +32,7 @@ const firebaseAuthConfig = {
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'notes', component:NotesComponent},
+  {path:'note/:id', component:NoteComponent},
   {path:'add-note', component:AddNoteComponent}
 ]
 

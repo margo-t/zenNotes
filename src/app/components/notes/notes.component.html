@@ -1,3 +1,6 @@
-<p>
-  notes works!
-</p>
+<div class="list-group">
+  <a class="list-group-item" [routerLink]="['/note/'+ note.$key]" *ngFor="let note of notes">
+      <h5 class="list-group-item-heading">{{note.title}}</h5>
+      <p class="list-group-item-text"> {{note.post}}</p>
+  </a>
+</div>
