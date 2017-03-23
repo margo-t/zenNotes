@@ -44,5 +44,5 @@ interface Note{
   $key?:string;
   $title?:string;
   $post?:string;
-  $date?:string;
+  //$date?:string;
 }

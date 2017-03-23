@@ -21,7 +21,8 @@ export class AddNoteComponent implements OnInit {
   }
 
   onAddSubmit(){
-    console.log(this.title)
+    console.log(this.title);
+
     let note = {
       title: this.title,
       post: this.post
