@@ -44,6 +44,10 @@ export class FirebaseService {
     return this.notes.update(id, note)
   }
 
+  deleteNote(id){
+    return this.notes.remove(id);
+  }
+
 }
 
 interface Note{

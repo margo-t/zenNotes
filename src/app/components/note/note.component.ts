@@ -40,4 +40,9 @@ export class NoteComponent implements OnInit {
     });
   }
 
+  onDeleteAction(){
+    this.FirebaseService.deleteNote(this.id);
+    this.Router.navigate(['/notes']);
+  }
+
 }
