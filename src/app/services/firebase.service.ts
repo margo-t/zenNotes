@@ -11,10 +11,11 @@ export class FirebaseService {
 
 
   constructor(private af: AngularFire) {
-  this.folder = 'noteImages';}
+  this.folder = 'noteImages';
+  this.notes = this.af.database.list('notes') as FirebaseListObservable<Note[]>;
+}
 
   getNotes(){
-    this.notes = this.af.database.list('notes') as FirebaseListObservable<Note[]>;
     return this.notes;
   }
 
@@ -37,6 +38,10 @@ export class FirebaseService {
         return this.notes.push(note);
       })
     }
+  }
+
+  updateNote(id, note){
+    return this.notes.update(id, note)
   }
 
 }

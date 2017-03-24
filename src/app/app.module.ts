@@ -33,7 +33,8 @@ const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'notes', component:NotesComponent},
   {path:'note/:id', component:NoteComponent},
-  {path:'add-note', component:AddNoteComponent}
+  {path:'add-note', component:AddNoteComponent},
+  {path:'edit-note/:id', component:EditNoteComponent}
 ]
 
 @NgModule({
