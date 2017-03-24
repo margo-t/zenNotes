@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 export class AddNoteComponent implements OnInit {
   title: any;
   post: any;
+  date: any;
   image: any;
 
   constructor(
@@ -21,11 +22,15 @@ export class AddNoteComponent implements OnInit {
   }
 
   onAddSubmit(){
-    console.log(this.title);
+    console.log(Date());
+    var now = new Date();
+    var now_utc = now.getUTCDate() +"/"+ now.getUTCMonth() +"/"+ now.getUTCFullYear();
+
 
     let note = {
       title: this.title,
-      post: this.post
+      post: this.post,
+      date: now_utc
       //image: this.image
     }
 

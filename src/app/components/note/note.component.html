@@ -1,12 +1,12 @@
 <div *ngIf="note">
 
 <h2>{{note.title}}</h2>
-<a class="btn btn-primary pull-right" [routerLink]="['/edit-note/'+note.$key]">Share</a>
+<!--<a class="btn btn-primary pull-right" [routerLink]="['/edit-note/'+note.$key]">Share</a>-->
 <blockquote>
   <div class="row">
 
       <p>{{note.post}}</p>
-      <small>Nevermber nth, 1990 </small>
+      <small>{{note.date}}</small>
       <!-- Image here> -->
       <img class="img-responsive" src="{{imageUrl}}">
 

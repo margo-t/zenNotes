@@ -11,6 +11,7 @@ import * as firebase from 'firebase';
 export class NoteComponent implements OnInit {
   id: any;
   note: any;
+  date: any;
   imageUrl: any;
 
 
